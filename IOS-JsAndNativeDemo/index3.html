@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>index_legend2</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" charset="utf-8">
+		<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			
+
+			$(function(){
+				$("#getVersion").click(function(){
+					var appVersion = Zhujiayi.getVersion();
+					console.log(appVersion);
+					alert(appVersion);
+				});
+
+				$("#getSum").click(function(){
+					var sum = Zhujiayi.getNumSum(1, 2, 93);
+					console.log(sum);
+					alert(sum);
+				});
+
+				$("#showNotice").click(function(){
+					Zhujiayi.showNotice("this is a test!!!");
+				});
+              
+              
+                $("#showSvp").click(function(){
+                    Zhujiayi.showSvp();
+                })
+              
+			});
+        
+		</script>
+	</head>
+        <body style="background-color:#000000;">
+        <br/>
+        <br/>
+		<a href="###" id="getVersion">getVersion</a>
+        <br/>
+		<a href="###" id="getSum">getNumSum</a>
+        <br/>
+		<a href="###" id="showNotice">showNotice</a>
+        <br/>
+        <a href="###" id="showSvp">调用弹框</a>
+	</body>
+</html>
