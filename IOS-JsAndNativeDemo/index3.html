@@ -14,7 +14,7 @@
 				});
 
 				$("#getSum").click(function(){
-					var sum = Zhujiayi.getNumSum(1, 2, 93);
+					var sum = Zhujiayi.getSum(1, 2, 93);
 					console.log(sum);
 					alert(sum);
 				});
@@ -23,24 +23,17 @@
 					Zhujiayi.showNotice("this is a test!!!");
 				});
               
-              
-                $("#showSvp").click(function(){
-                    Zhujiayi.showSvp();
-                })
-              
 			});
         
 		</script>
 	</head>
-        <body style="background-color:#000000;">
         <br/>
         <br/>
 		<a href="###" id="getVersion">getVersion</a>
         <br/>
-		<a href="###" id="getSum">getNumSum</a>
+		<a href="###" id="getSum">getSum</a>
         <br/>
 		<a href="###" id="showNotice">showNotice</a>
         <br/>
-        <a href="###" id="showSvp">调用弹框</a>
 	</body>
 </html>

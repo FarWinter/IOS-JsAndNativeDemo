@@ -72,7 +72,7 @@
 
      ``` objc 
      -	(NSInteger)get:(id)number1  Sum:(id)number2;
-           这样其实也就是把js的方法名拆开，拼起来是js的方法名就行
+           //这样其实也就是把js的方法名拆开，拼起来是js的方法名就行
 ```
      * .m实现：
      

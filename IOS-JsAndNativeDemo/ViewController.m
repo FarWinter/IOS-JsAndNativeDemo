@@ -28,7 +28,9 @@
     
     
     _webView.delegate = self;
-    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.1.192/index3.html"]]];
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"index3" ofType:@"html"];
+    
+    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:path]]];
     
     
     
