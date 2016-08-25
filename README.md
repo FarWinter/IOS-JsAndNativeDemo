@@ -3,7 +3,7 @@
 ------
 ## 通过webview代理方法
 ```objc
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType；
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
 ```
 * 当触发上面的js，webview会收到回调，用上面的代理方法来截获这个request的参数就可以做native需要做的事情。
 * 这中方法比较的麻烦不够清晰，**不推荐使用**。
@@ -36,15 +36,20 @@
    ```
    * js调用oc的方法：
    
-     ➢	这里主要说一下把我们创建的对象赋值给JS的对象；
-     ➢	上面提到的，JSExport就是一个协议，遵守这个协议，我们就可以在里面写自己的方法（js定义的方法或者我们写方法让js去调）；
-     ➢	创建一个类，导入头文件 JavaScriptCore/JavaScriptCore.h；
-     ➢	js的方法分为无参数和有参数的方法；
-     ➢  ==无参数==：在我们这个类里面写一个有返回值无参数的方法，方法名和js的方法名相同，在.m中实现这个方法
+     ➢	这里主要说一下把我们创建的对象赋值给JS的对象;
+     
+     ➢	上面提到的，JSExport就是一个协议，遵守这个协议，我们就可以在里面写自己的方法（js定义的方法或者我们写方法让js去调）;
+     
+     ➢	创建一个类，导入头文件 JavaScriptCore/JavaScriptCore.h;
+     
+     ➢	js的方法分为无参数和有参数的方法;
+     
+     ➢  **无参数**：在我们这个类里面写一个有返回值无参数的方法，方法名和js的方法名相同，在.m中实现这个方法;
+     
      ➢	例如：js想要获取我们APP当前的版本号，我们就可以定个方法;
      
      ```objc
-     - （NSString *）getVersion;
+     - (NSString *)getVersion;
      ```
      
      ➢	在.m中实现：
@@ -60,7 +65,7 @@
 }
      ```
      
-     ➢	==有参数==：就是js的方法带有一个或者多个参数，这里说两种方法:
+     ➢	**有参数**：就是js的方法带有一个或者多个参数，这里说两种方法:
      * 把js的方法名进行拆分
      例如：js想要我们这边算一个加法，js的方法为getSum(A,B);带有两个参数A,B;
      * 我们就可以把方法拆分为
@@ -79,10 +84,10 @@
 
      ```
      
-     *	==这里有一个问题，如果js的参数比较多的话，那么我们这边就拆分就比较麻烦，js的方法名也要写的很长，所以就有了一个更好的系统的方法:==
+     *	**这里有一个问题，如果js的参数比较多的话，那么我们这边就拆分就比较麻烦，js的方法名也要写的很长，所以就有了一个更好的系统的方法:**
      
      ```objc
-      JSExportAs（PropertyName，Selector）
+      JSExportAs(PropertyName,Selector)
 ```
      * 这个宏定义的方法有两个参数:
      
@@ -107,7 +112,7 @@
     
      * 这个宏定义的方法在有多个参数的时候，js不用写很长的方法名，减少了前端的工作量。
      
-    ##总结：运用JavaScriptCore这个系统库，更好的解决了与js交互的各种问题，减少了不必要的麻烦。不用再去使用第三方的库类，减少了项目的负载。
+##总结：运用JavaScriptCore这个系统库，更好的解决了与js交互的各种问题，减少了不必要的麻烦。不用再去使用第三方的库类，减少了项目的负载。
    --
    --
 	张鹏 2016.8.23													   
