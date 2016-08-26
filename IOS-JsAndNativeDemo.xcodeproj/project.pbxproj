@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E0EE3B01D70315600EB7DEB /* WKWebViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0EE3AF1D70315600EB7DEB /* WKWebViewTest.m */; };
+		6E0EE3B41D70319500EB7DEB /* WebViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0EE3B21D70319500EB7DEB /* WebViewTest.m */; };
+		6E0EE3B51D70319500EB7DEB /* WebViewTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E0EE3B31D70319500EB7DEB /* WebViewTest.xib */; };
 		6E1E68D81D6698B3007C93AB /* index3.html in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E68D71D6698B3007C93AB /* index3.html */; };
 		6E1E68DB1D66AD0C007C93AB /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1E68DA1D66AD0C007C93AB /* JavaScriptCore.framework */; };
 		6E1E68E41D6ACBA6007C93AB /* TestActionProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E68E31D6ACBA6007C93AB /* TestActionProxy.m */; };
@@ -34,6 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E0EE3AE1D70315600EB7DEB /* WKWebViewTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewTest.h; sourceTree = "<group>"; };
+		6E0EE3AF1D70315600EB7DEB /* WKWebViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewTest.m; sourceTree = "<group>"; };
+		6E0EE3B11D70319500EB7DEB /* WebViewTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewTest.h; sourceTree = "<group>"; };
+		6E0EE3B21D70319500EB7DEB /* WebViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewTest.m; sourceTree = "<group>"; };
+		6E0EE3B31D70319500EB7DEB /* WebViewTest.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewTest.xib; sourceTree = "<group>"; };
 		6E1E68D71D6698B3007C93AB /* index3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index3.html; sourceTree = "<group>"; };
 		6E1E68DA1D66AD0C007C93AB /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		6E1E68E31D6ACBA6007C93AB /* TestActionProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestActionProxy.m; sourceTree = "<group>"; };
@@ -79,6 +87,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E0EE3B61D70323500EB7DEB /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				6E1E68E51D6ACC6C007C93AB /* TestActionProxy.h */,
+				6E1E68E31D6ACBA6007C93AB /* TestActionProxy.m */,
+				6E0EE3B11D70319500EB7DEB /* WebViewTest.h */,
+				6E0EE3B21D70319500EB7DEB /* WebViewTest.m */,
+				6E0EE3B31D70319500EB7DEB /* WebViewTest.xib */,
+			);
+			name = WebView;
+			sourceTree = "<group>";
+		};
+		6E0EE3B71D70324900EB7DEB /* WKWebView */ = {
+			isa = PBXGroup;
+			children = (
+				6E0EE3AE1D70315600EB7DEB /* WKWebViewTest.h */,
+				6E0EE3AF1D70315600EB7DEB /* WKWebViewTest.m */,
+			);
+			name = WKWebView;
+			sourceTree = "<group>";
+		};
 		6E1E68E61D6AE462007C93AB /* SVProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,18 +144,18 @@
 		6E4B5C5B1D643D3B006FD478 /* IOS-JsAndNativeDemo */ = {
 			isa = PBXGroup;
 			children = (
-				6E1E68E61D6AE462007C93AB /* SVProgressHUD */,
 				6E1E68D71D6698B3007C93AB /* index3.html */,
-				6E1E68E51D6ACC6C007C93AB /* TestActionProxy.h */,
-				6E1E68E31D6ACBA6007C93AB /* TestActionProxy.m */,
 				6E4B5C5F1D643D3B006FD478 /* AppDelegate.h */,
 				6E4B5C601D643D3B006FD478 /* AppDelegate.m */,
 				6E4B5C621D643D3B006FD478 /* ViewController.h */,
 				6E4B5C631D643D3B006FD478 /* ViewController.m */,
+				6E0EE3B61D70323500EB7DEB /* WebView */,
+				6E0EE3B71D70324900EB7DEB /* WKWebView */,
 				6E4B5C651D643D3B006FD478 /* Main.storyboard */,
 				6E4B5C681D643D3B006FD478 /* Assets.xcassets */,
 				6E4B5C6A1D643D3B006FD478 /* LaunchScreen.storyboard */,
 				6E4B5C6D1D643D3B006FD478 /* Info.plist */,
+				6E1E68E61D6AE462007C93AB /* SVProgressHUD */,
 				6E4B5C5C1D643D3B006FD478 /* Supporting Files */,
 			);
 			path = "IOS-JsAndNativeDemo";
@@ -230,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E1E68EF1D6AE463007C93AB /* SVProgressHUD.bundle in Resources */,
+				6E0EE3B51D70319500EB7DEB /* WebViewTest.xib in Resources */,
 				6E4B5C6C1D643D3B006FD478 /* LaunchScreen.storyboard in Resources */,
 				6E1E68D81D6698B3007C93AB /* index3.html in Resources */,
 				6E4B5C691D643D3B006FD478 /* Assets.xcassets in Resources */,
@@ -254,8 +284,10 @@
 				6E1E68F11D6AE463007C93AB /* SVRadialGradientLayer.m in Sources */,
 				6E1E68EE1D6AE463007C93AB /* SVIndefiniteAnimatedView.m in Sources */,
 				6E4B5C641D643D3B006FD478 /* ViewController.m in Sources */,
+				6E0EE3B41D70319500EB7DEB /* WebViewTest.m in Sources */,
 				6E1E68E41D6ACBA6007C93AB /* TestActionProxy.m in Sources */,
 				6E4B5C611D643D3B006FD478 /* AppDelegate.m in Sources */,
+				6E0EE3B01D70315600EB7DEB /* WKWebViewTest.m in Sources */,
 				6E4B5C5E1D643D3B006FD478 /* main.m in Sources */,
 				6E1E68F01D6AE463007C93AB /* SVProgressHUD.m in Sources */,
 			);
