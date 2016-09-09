@@ -39,67 +39,65 @@
 	* 这里主要说一下把我们创建的对象赋值给 JS 的对象;
 	* 上面提到的，JSExport 就是一个协议，遵守这个协议，我们就可以在里面写自己的方法（js 定义的方法或者我们写方法让 js 去调）;
 	* 创建一个类，导入头文件 JavaScriptCore/JavaScriptCore.h;
-	* js的方法分为无参数和有参数的方法;
-	* **无参数**：在我们这个类里面写一个有返回值无参数的方法，方法名和js的方法名相同，在.m中实现这个方法;
-	* 例如：js想要获取我们APP当前的版本号，我们就可以定个方法;
-	
-		```objc
-		- (NSString *)getVersion;
-		```
-	* 在.m中实现：
-	
-	    ```objc
-     	- (NSString *)getVersion{
-     	    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-     	    NSString *appVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
-     	    return appVersion;
-     	}
-        ```
+	* JS的方法分为无参数和有参数的方法;
+	0. **无参数**：在我们这个类里面写一个有返回值无参数的方法，方法名和js的方法名相同，在.m中实现这个方法;
+    	* 例如：js想要获取我们APP当前的版本号，我们就可以定个方法;
+    	
+    		```objc
+    		- (NSString *)getVersion;
+    		```
+    	* 在.m中实现：
+    	
+    	    ```objc
+         	- (NSString *)getVersion{
+         	    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+         	    NSString *appVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+         	    return appVersion;
+         	}
+            ```
+    0. **有参数**：就是js的方法带有一个或者多个参数，这里说两种方法:
+        * 把js的方法名进行拆分,例如：js想要我们这边算一个加法，js的方法为getSum(A,B);带有两个参数A,B;
+        * 我们就可以把方法拆分为
+    
+            ``` objc 
+            -	(NSInteger)get:(id)number1  Sum:(id)number2;
+            //这样其实也就是把js的方法名拆开，拼起来是js的方法名就行
+            ```
+        
+        * .m实现：
+        
+            ```objc 
+            - (NSInteger)get:(id)number1 Sum:(id)number2{
+                NSInteger result = [number1 integerValue] + [number2 integerValue];
+                return result;
+            }
+            ```
      
-	* **有参数**：就是js的方法带有一个或者多个参数，这里说两种方法:
-    * 把js的方法名进行拆分
-     例如：js想要我们这边算一个加法，js的方法为getSum(A,B);带有两个参数A,B;
-    * 我们就可以把方法拆分为
+    0. **这里有一个问题，如果js的参数比较多的话，那么我们这边就拆分就比较麻烦，js的方法名也要写的很长，所以就有了一个更好的系统的方法:**
+     
+        ```objc
+        JSExportAs(PropertyName,Selector)
+        ```
+        * 这个宏定义的方法有两个参数:
+            0. PropertyName这个就是js的方法名
+            0. Selector我们定义的方法需要用来完成js要做的事
+        * 例如：还是算个加法
+        
+            ```objc
+            JSExportAs(getSum, - (NSInteger)getNumsumNumber1:(id)num1 number2:(id)num2 number3:(id)num3);
+            //num1  num2   num3  js传过来的参数（一般有个几参数就要用几个来接收）
+            ```
+        * .m实现：
 
-        ``` objc 
-     -	(NSInteger)get:(id)number1  Sum:(id)number2;
-           //这样其实也就是把js的方法名拆开，拼起来是js的方法名就行
-        ```
-    * .m实现：
-    
-        ```objc 
-     - (NSInteger)get:(id)number1 Sum:(id)number2{
-				NSInteger result = [number1 integerValue] + [number2 integerValue];
-				return result;
-}
-        ```
-     
-    * **这里有一个问题，如果js的参数比较多的话，那么我们这边就拆分就比较麻烦，js的方法名也要写的很长，所以就有了一个更好的系统的方法:**
-     
-        ```objc
-      JSExportAs(PropertyName,Selector)
-		```
-    * 这个宏定义的方法有两个参数:
-        0. PropertyName这个就是js的方法名
-        0. Selector我们定义的方法需要用来完成js要做的事
-      
-    * 例如：还是算个加法
-    
-        ```objc
-      JSExportAs(getSum, - (NSInteger)getNumsumNumber1:(id)num1 number2:(id)num2 number3:(id)num3);
-//num1  num2   num3  js传过来的参数（一般有个几参数就要用几个来接收）
-        ```
-    * .m实现：
-
-        ```objc
-     - (NSInteger)getNumsumNumber1:(id)num1 number2:(id)num2 number3:(id)num3{
-     			NSInteger result = [num1 integerValue] + [num2 integerValue] + [num3 integerValue];
-     			//retrun 就是返回给js的结果
-     			return result;
-}
-        ```
-    
-     * 这个宏定义的方法在有多个参数的时候，js不用写很长的方法名，减少了前端的工作量。
+            ```objc
+            - (NSInteger)getNumsumNumber1:(id)num1 number2:(id)num2 number3:(id)num3{
+                NSInteger result = [num1 integerValue] + [num2 integerValue] + [num3 integerValue];
+                //retrun 就是返回给js的结果
+                return result;
+            }
+            ```
+        
+        * 这个宏定义的方法在有多个参数的时候，js不用写很长的方法名，减少了前端的工作量。
      
 ## 总结
 
