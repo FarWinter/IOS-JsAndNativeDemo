@@ -91,12 +91,14 @@
 ```
      * 这个宏定义的方法有两个参数:
      
-       	PropertyName这个就是js的方法名	Selector我们定义的方法需要用来完成js要做的事
+       	PropertyName这个就是js的方法名
+	Selector我们定义的方法需要用来完成js要做的事
       
       * 例如：还是算个加法
 
       ```objc
-      JSExportAs(getSum, - (NSInteger)getNumsumNumber1:(id)num1 number2:(id)num2 number3:(id)num3);//num1  num2   num3  js传过来的参数（一般有个几参数就要用几个来接收）
+      JSExportAs(getSum, - (NSInteger)getNumsumNumber1:(id)num1 number2:(id)num2 number3:(id)num3);
+//num1  num2   num3  js传过来的参数（一般有个几参数就要用几个来接收）
       ```
      * .m实现：
      
@@ -112,8 +114,7 @@
     
      * 这个宏定义的方法在有多个参数的时候，js不用写很长的方法名，减少了前端的工作量。
      
-##总结：运用JavaScriptCore这个系统库，更好的解决了与js交互的各种问题，减少了不必要的麻烦。不用再去使用第三方的库类，减少了项目的负载。
-   --
+## 总结：运用JavaScriptCore这个系统库，更好的解决了与js交互的各种问题，减少了不必要的麻烦。不用再去使用第三方的库类，减少了项目的负载。
    --
 	张鹏 2016.8.23													   
     
